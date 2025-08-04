@@ -8,7 +8,8 @@ public class GradeCalculator
         {
             if (grade >= 90 && grade <= 100)
                 Console.WriteLine("Grade: A");
-            
+
         }
     }
 } 
+
