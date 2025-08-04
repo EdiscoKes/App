@@ -21,7 +21,10 @@ namespace MyMiniApps
                     case "1":
                         GradeCalculator();
                         break;
-                    
+                    case "2":
+                        TicketPriceCalculator();
+                        break;   
+
                     case "4":
                         Console.WriteLine("Exiting application. Goodbye!");
                         return;
@@ -51,6 +54,24 @@ namespace MyMiniApps
             else
             {
                 Console.WriteLine("Invalid input. Please enter a number.");
+            }
+        }
+
+        // TicketPriceCalculator
+
+         static void TicketPriceCalculator()
+        {
+            Console.Write("Enter your age: ");
+            if (int.TryParse(Console.ReadLine(), out int age))
+            {
+                if (age <= 12 || age >= 65)
+                    Console.WriteLine("Ticket price is: GHC10");
+                else
+                    Console.WriteLine("Ticket price is: GHC20");
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid age.");
             }
         }
 
