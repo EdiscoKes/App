@@ -23,8 +23,10 @@ namespace MyMiniApps
                         break;
                     case "2":
                         TicketPriceCalculator();
-                        break;   
-
+                        break;
+                    case "3":
+                        TriangleTypeIdentifier();
+                        break;
                     case "4":
                         Console.WriteLine("Exiting application. Goodbye!");
                         return;
@@ -59,7 +61,7 @@ namespace MyMiniApps
 
         // TicketPriceCalculator
 
-         static void TicketPriceCalculator()
+        static void TicketPriceCalculator()
         {
             Console.Write("Enter your age: ");
             if (int.TryParse(Console.ReadLine(), out int age))
@@ -75,6 +77,39 @@ namespace MyMiniApps
             }
         }
 
-       
+
+        //triangle type identifier
+
+        static void TriangleTypeIdentifier()
+        {
+            Console.Write("Enter side A: ");
+            bool validA = int.TryParse(Console.ReadLine(), out int a);
+            Console.Write("Enter side B: ");
+            bool validB = int.TryParse(Console.ReadLine(), out int b);
+            Console.Write("Enter side C: ");
+            bool validC = int.TryParse(Console.ReadLine(), out int c);
+
+            if (!validA || !validB || !validC || a <= 0 || b <= 0 || c <= 0)
+            {
+                Console.WriteLine("Invalid sides. Please enter positive numbers.");
+                return;
+            }
+
+            if (a + b > c && a + c > b && b + c > a)
+            {
+                if (a == b && b == c)
+                    Console.WriteLine("This is an Equilateral triangle.");
+                else if (a == b || b == c || a == c)
+                    Console.WriteLine("This is an Isosceles triangle.");
+                else
+                    Console.WriteLine("This is a Scalene triangle.");
+            }
+            else
+            {
+                Console.WriteLine("The entered sides do not form a valid triangle.");
+            }
+        }
+
+
     }
 }
